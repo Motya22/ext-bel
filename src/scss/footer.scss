@@ -1,0 +1,96 @@
+@use "sass:math";
+
+.footer {
+  background-color: #fff;
+
+  &__container {
+  }
+
+  &__body {
+    min-height: 183px;
+    @include adaptiv-value("padding-top", 42, 19, 1);
+    @include adaptiv-value("padding-bottom", 52, 24, 1);
+  }
+
+  &__wrapper {
+    max-width: 604px;
+    margin: 0 auto;
+  }
+
+  &__menu {
+    @include adaptiv-value("margin-bottom", 34, 20, 1);
+  }
+
+  &__social-networks {
+  }
+}
+// --------------------------------------------------------------------
+.container {
+}
+// --------------------------------------------------------------------
+.menu-footer {
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @media (min-width: ($bp3 + px)) {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    margin: 0 3px;
+    padding: 5px 0;
+  }
+
+  &__link {
+    font-size: 20px;
+    line-height: math.div(27, 20) * 100%;
+    letter-spacing: -0.015em;
+    color: inherit;
+    transition: color 0.3s ease 0s;
+
+    &:hover {
+      color: var(--colorDarkBlue);
+    }
+
+    @media (max-width: ($bp3 + px)) {
+      font-size: 26px;
+    }
+  }
+}
+// --------------------------------------------------------------------
+.social-networks {
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin: 0 3px;
+    padding: 5px 0;
+
+    &:not(:last-child) {
+      @include adaptiv-value("margin-right", 30, 24, 1);
+    }
+  }
+
+  &__link {
+    color: #000;
+    font-size: 28px;
+
+    &:hover {
+      color: var(--colorDarkBlue);
+    }
+
+    @media (max-width: ($bp3 + px)) {
+      font-size: 32px;
+    }
+  }
+}

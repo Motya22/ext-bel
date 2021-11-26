@@ -1,0 +1,156 @@
+@use "sass:math";
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.8s ease 0s;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__window {
+    max-width: 480px;
+    padding: 50px 60px;
+    background-color: #fff;
+    position: relative;
+
+    @media (max-width: ($bp3 + px)) {
+      padding: 25px 30px;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    background-color: #fff;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__body {
+    @media (min-width: ($bp3 + px)) {
+      min-width: 360px;
+    }
+  }
+
+  &__title {
+    @include adaptiv-value("font-size", 28, 16, 1);
+    line-height: math.div(38, 28) * 100%;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    text-align: center;
+    @include adaptiv-value("margin-bottom", 29, 26, 1);
+  }
+
+  &__form {
+  }
+
+  &__link {
+    display: block;
+    color: var(--colorBlue);
+    @include adaptiv-value("font-size", 18, 14, 1);
+    text-align: center;
+    @include adaptiv-value("margin-top", 27, 16, 1);
+
+    &:hover {
+      color: var(--colorDarkBlue);
+    }
+  }
+}
+.form {
+
+  &__body {
+  }
+
+  &__item {
+    &:not(:nth-child(2)) {
+      @include adaptiv-value("margin-bottom", 23, 14, 1);
+    }
+  }
+
+  &__label {
+    display: block;
+    @include adaptiv-value("font-size", 18, 14, 1);
+    line-height: math.div(24, 18) * 100%;
+    margin-bottom: 5px;
+  }
+
+  &__input {
+    height: 54px;
+    padding: 0 20px;
+    border: 1px solid #bddcfe;
+    border-radius: 2px;
+    background: rgba(189, 220, 254, 0.05);
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.5s ease 0s;
+
+    &:focus {
+      box-shadow: 0 0 15px var(--colorMain);
+    }
+
+    &.error {
+      box-shadow: 0 0 15px #ff0000;
+    }
+  }
+
+  &__forgot {
+    @include adaptiv-value("margin-bottom", 40, 23, 1);
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    background-color: var(--colorBlue);
+    color: #fff;
+    border-radius: 100px;
+    box-shadow: 0 5px 0 var(--colorMain);
+    @include adaptiv-value("font-size", 20, 14, 1);
+    transition: color 0.3s ease 0s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--colorDarkBlue);
+    }
+
+    &:active {
+      top: 3px;
+      box-shadow: 0 2px 0 var(--colorMain);
+    }
+  }
+}
+.forgot {
+
+  &__link {
+    color: var(--colorBlue);
+    @include adaptiv-value("font-size", 16, 14, 1);
+    line-height: math.div(24, 16) * 100%;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--colorDarkBlue);
+    }
+  }
+}
